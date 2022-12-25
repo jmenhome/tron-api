@@ -11,5 +11,7 @@ try {
     exit($e->getMessage());
 }
 
-$detail = $tron->getTransaction('TxId');
+$txId = readline('TxID:');
+
+$detail = $tron->getTransaction($txId);
 var_dump($detail);
