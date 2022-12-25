@@ -250,6 +250,9 @@ class TRC20Contract
         if(is_null($address))
             $address = $this->_tron->address['base58'];
 
+        if (is_null($address))
+            throw new TRC20Exception('Address not set / provided');
+
         $addr = str_pad($this->_tron->address2HexString($address), 64, "0", STR_PAD_LEFT);
         $result = $this->trigger('balanceOf', $address, [$addr]);
         $balance = $result[0]->toString();
