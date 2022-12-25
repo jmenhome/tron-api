@@ -26,7 +26,8 @@
         "kornrunner/secp256k1": "^0.2",
         "simplito/elliptic-php": "^1.0",
         "ext-json": "*",
-        "ext-bcmath": "*"
+        "ext-bcmath": "*",
+        "ext-readline": "*"
     },
 
     "require-dev": {

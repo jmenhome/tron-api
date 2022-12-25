@@ -11,6 +11,11 @@ try {
     exit($e->getMessage());
 }
 
+$address = readline('Please type address:');
 
-$tron->setAddress('address');
+$tron->setAddress($address);
 $balance = $tron->getBalance(null, true);
+echo 'Balance #1: '.$balance."\n";
+
+$balance = $tron->getBalance($address, true);
+echo 'Balance #2: '.$balance."\n";
