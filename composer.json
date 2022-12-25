@@ -17,12 +17,21 @@
         "tron-api",
         "tron-rest-api"
     ],
-
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/jmenhome/web3.php"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/jmenhome/data-types"
+        }
+    ],
     "require": {
         "php": ">=8.0",
-        "comely-io/data-types": "^1.0",
+        "jmenhome/data-types": "master",
         "guzzlehttp/guzzle": "^7.2",
-        "iexbase/web3.php": "^2.0.1",
+        "jmenhome/web3.php": "*",
         "kornrunner/secp256k1": "^0.2",
         "simplito/elliptic-php": "^1.0",
         "ext-json": "*",
