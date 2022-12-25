@@ -554,7 +554,7 @@ class Tron implements TronInterface
     {
         $address = (!is_null($address) ? $this->toHex($address) : $this->address['hex']);
 
-        return $this->manager->request('walletsolidity/getaccount', [
+        return $this->manager->request('wallet/getaccount', [
             'address'   =>  $address
         ]);
     }
