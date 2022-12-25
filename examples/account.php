@@ -5,20 +5,15 @@ try {
     $tron = new \IEXBase\TronAPI\Tron();
 
     $generateAddress = $tron->generateAddress(); // or createAddress()
-    $isValid = $tron->isAddress($generateAddress->getAddress());
 
+    echo 'Address hex: '. $generateAddress->getAddress()."\n";
+    echo 'Address base58: '. $generateAddress->getAddress(true)."\n";
+    echo 'Private key: '. $generateAddress->getPrivateKey()."\n";
+    echo 'Public key: '. $generateAddress->getPublicKey()."\n";
+    echo 'Is Valid: '. ($tron->isAddress($generateAddress->getAddress(true)) ? 'Y' : 'N')."\n";
 
-    echo 'Address hex: '. $generateAddress->getAddress();
-    echo 'Address base58: '. $generateAddress->getAddress(true);
-    echo 'Private key: '. $generateAddress->getPrivateKey();
-    echo 'Public key: '. $generateAddress->getPublicKey();
-    echo 'Is Validate: '. $isValid;
-
-    echo 'Raw data: '.$generateAddress->getRawData();
+    echo 'Raw data: '.var_export($generateAddress->getRawData(), true)."\n";
 
 } catch (\IEXBase\TronAPI\Exception\TronException $e) {
     echo $e->getMessage();
 }
-
-
-
