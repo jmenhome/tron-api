@@ -11,11 +11,14 @@ try {
     exit($e->getMessage());
 }
 
-$tron->setAddress('address');
-$tron->setPrivateKey('privateKey');
+$tron->setAddress(readline('From address:'));
+$tron->setPrivateKey(readline('From private key:'));
+$amount = readline('Amount, trx:');
+
+$to = readline('To address:');
 
 try {
-    $transfer = $tron->send( 'ToAddress', 1);
+    $transfer = $tron->send($to, (float) $amount);
 } catch (\IEXBase\TronAPI\Exception\TronException $e) {
     die($e->getMessage());
 }
