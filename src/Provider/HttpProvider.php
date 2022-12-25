@@ -35,7 +35,10 @@ class HttpProvider implements HttpProviderInterface
      *
      * @var array
     */
-    protected $headers = [];
+    protected $headers = [
+        "Accept" => "application/json",
+        "Content-Type" => "application/json"
+    ];
 
     /**
      * Get the pages
@@ -74,7 +77,9 @@ class HttpProvider implements HttpProviderInterface
         $this->host = $host;
         $this->timeout = $timeout;
         $this->statusPage = $statusPage;
-        $this->headers = $headers;
+        if (count($headers)) {
+            $this->headers = $headers;
+        }
 
         $this->httpClient = new Client([
             'base_uri'  =>  $host,
