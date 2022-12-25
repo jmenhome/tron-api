@@ -13,9 +13,7 @@ try {
 
 $address = readline('Please type address:');
 
-$tron->setAddress($address);
-
-$balance=$tron->getTransactionBuilder()->contractbalance($tron->getAddress());
+$balance=$tron->getTransactionBuilder()->contractbalance($address);
 foreach($balance as $key =>$item)
 {
 	echo $item["name"]. " (".$item["symbol"].") => " . $item["balance"] . "\n";
